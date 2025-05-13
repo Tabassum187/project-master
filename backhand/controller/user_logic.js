@@ -1,7 +1,13 @@
 let user = require("../collection/User");
 let b = require("bcrypt");
 
+// 🆕 Import the models
+const Workout = require("../Models/Workout");
+const FoodLog = require("../Models/FoodLog");
+const Progress = require("../Models/Progress");
+
 let user_function = {
+  // -------- USER ROUTES --------
   register: async function (req, res) {
     try {
       let {
@@ -40,7 +46,7 @@ let user_function = {
           diabities
         });
 
-        let save_data = await user_data.save();
+        await user_data.save();
         return res.status(200).json({ msg: "User registered successfully" });
       }
     } catch (error) {
@@ -110,6 +116,7 @@ let user_function = {
       return res.status(501).json({ msg: error.message });
     }
   },
+
   login: async function (req, res) {
     try {
       let { email, password } = req.body;
@@ -130,8 +137,134 @@ let user_function = {
     } catch (error) {
       return res.status(500).json({ msg: error.message });
     }
-  }
+  },
 
+  // -------- WORKOUT ROUTES --------
+  addWorkout: async (req, res) => {
+    try {
+      const { userId, exercises } = req.body;
+      const newWorkout = new Workout({ userId, exercises });
+      await newWorkout.save();
+      res.status(201).json({ msg: "Workout saved", data: newWorkout });
+    } catch (err) {
+      res.status(500).json({ msg: err.message });
+    }
+  },
+
+  getWorkouts: async (req, res) => {
+    try {
+      const { userId } = req.query;
+      const workouts = await Workout.find({ userId });
+      res.json(workouts);
+    } catch (err) {
+      res.status(500).json({ msg: err.message });
+    }
+  },
+
+  updateWorkout: async (req, res) => {
+    try {
+      const { id } = req.params;
+      const updatedWorkout = await Workout.findByIdAndUpdate(id, req.body, { new: true });
+      res.json({ msg: "Workout updated", data: updatedWorkout });
+    } catch (err) {
+      res.status(500).json({ msg: err.message });
+    }
+  },
+
+  deleteWorkout: async (req, res) => {
+    try {
+      const { id } = req.params;
+      await Workout.findByIdAndDelete(id);
+      res.json({ msg: "Workout deleted" });
+    } catch (err) {
+      res.status(500).json({ msg: err.message });
+    }
+  },
+
+  // -------- FOOD LOG ROUTES --------
+  addFood: async (req, res) => {
+    try {
+      const { userId, meals } = req.body;
+      const newFoodLog = new FoodLog({ userId, meals });
+      await newFoodLog.save();
+      res.status(201).json({ msg: "Food log saved", data: newFoodLog });
+    } catch (err) {
+      res.status(500).json({ msg: err.message });
+    }
+  },
+
+  getFoods: async (req, res) => {
+    try {
+      const { userId } = req.query;
+      const foodLogs = await FoodLog.find({ userId });
+      res.json(foodLogs);
+    } catch (err) {
+      res.status(500).json({ msg: err.message });
+    }
+  },
+
+  updateFood: async (req, res) => {
+    try {
+      const { id } = req.params;
+      const updatedFood = await FoodLog.findByIdAndUpdate(id, req.body, { new: true });
+      res.json({ msg: "Food log updated", data: updatedFood });
+    } catch (err) {
+      res.status(500).json({ msg: err.message });
+    }
+  },
+
+  deleteFood: async (req, res) => {
+    try {
+      const { id } = req.params;
+      await FoodLog.findByIdAndDelete(id);
+      res.json({ msg: "Food log deleted" });
+    } catch (err) {
+      res.status(500).json({ msg: err.message });
+    }
+  },
+
+  // -------- PROGRESS ROUTES --------
+  addProgress: async (req, res) => {
+    try {
+      const { userId, weight, bodyFat, chest, waist, hips } = req.body;
+      const newProgress = new Progress({ userId, weight, bodyFat, chest, waist, hips });
+      await newProgress.save();
+      res.status(201).json({ msg: "Progress saved", data: newProgress });
+    } catch (err) {
+      res.status(500).json({ msg: err.message });
+    }
+  },
+
+  getProgress: async (req, res) => {
+    try {
+      const { userId } = req.query;
+      const progress = await Progress.find({ userId });
+      res.json(progress);
+    } catch (err) {
+      res.status(500).json({ msg: err.message });
+    }
+  },
+
+  updateProgress: async (req, res) => {
+    try {
+      const { id } = req.params;
+      const updatedProgress = await Progress.findByIdAndUpdate(id, req.body, { new: true });
+      res.json({ msg: "Progress updated", data: updatedProgress });
+    } catch (err) {
+      res.status(500).json({ msg: err.message });
+    }
+  },
+
+  deleteProgress: async (req, res) => {
+    try {
+      const { id } = req.params;
+      await Progress.findByIdAndDelete(id);
+      res.json({ msg: "Progress deleted" });
+    } catch (err) {
+      res.status(500).json({ msg: err.message });
+    }
+  }
+  
 };
 
 module.exports = user_function;
