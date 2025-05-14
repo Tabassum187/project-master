@@ -1,9 +1,10 @@
+// components/ProgressItem.jsx
 import React from 'react';
 
 const ProgressItem = ({ progress }) => {
   return (
-    <li>
-      <h3>{progress.date}</h3>
+    <li className="list-group-item">
+      <h5>{progress.date}</h5>
       <p>Weight: {progress.weight} kg</p>
       <p>Chest: {progress.chest} cm</p>
       <p>Waist: {progress.waist} cm</p>

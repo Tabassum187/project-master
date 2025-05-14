@@ -1,560 +1,412 @@
-import React from 'react'
-import Header from './Header'
-import Footer from './Footer'
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 export default function Main() {
   return (
-    <div>
+    <div className="dark-theme">
+      <div className="container-scroller">
+        {/* Navbar */}
+        <nav className="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+          <div className="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+            <Link className="navbar-brand brand-logo" to="/" style={{ color: 'yellow' }}>
+  <span className="text-warning">FitTrack</span>Pro
+</Link>
 
-   <div class="container-scroller">
-     
-      <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-          <a class="navbar-brand brand-logo" href="index.html"><img src="assets/images/logo.svg" alt="logo" /></a>
-          <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
-        </div>
-        <div class="navbar-menu-wrapper d-flex align-items-stretch">
-          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-            <span class="mdi mdi-menu"></span>
-          </button>
-          <div class="search-field d-none d-xl-block">
-            <form class="d-flex align-items-center h-100" action="#">
-              <div class="input-group">
-                <div class="input-group-prepend bg-transparent">
-                  <i class="input-group-text border-0 mdi mdi-magnify"></i>
-                </div>
-                <input type="text" class="form-control bg-transparent border-0" placeholder="Search products"/>
-              </div>
-            </form>
+
           </div>
-          <ul class="navbar-nav navbar-nav-right">
-            <li class="nav-item  dropdown d-none d-md-block">
-              <a class="nav-link dropdown-toggle" id="reportDropdown" href="#" data-toggle="dropdown" aria-expanded="false"> Reports </a>
-              <div class="dropdown-menu navbar-dropdown" aria-labelledby="reportDropdown">
-                <a class="dropdown-item" href="#">
-                  <i class="mdi mdi-file-pdf mr-2"></i>PDF </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">
-                  <i class="mdi mdi-file-excel mr-2"></i>Excel </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">
-                  <i class="mdi mdi-file-word mr-2"></i>doc </a>
-              </div>
-            </li>
-            <li class="nav-item  dropdown d-none d-md-block">
-              <a class="nav-link dropdown-toggle" id="projectDropdown" href="#" data-toggle="dropdown" aria-expanded="false"> Projects </a>
-              <div class="dropdown-menu navbar-dropdown" aria-labelledby="projectDropdown">
-                <a class="dropdown-item" href="#">
-                  <i class="mdi mdi-eye-outline mr-2"></i>View Project </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">
-                  <i class="mdi mdi-pencil-outline mr-2"></i>Edit Project </a>
-              </div>
-            </li>
-            <li class="nav-item nav-language dropdown d-none d-md-block">
-              <a class="nav-link dropdown-toggle" id="languageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                <div class="nav-language-icon">
-                  <i class="flag-icon flag-icon-us" title="us" id="us"></i>
+          <div className="navbar-menu-wrapper d-flex align-items-stretch">
+            <button className="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+              <span className="mdi mdi-menu"></span>
+            </button>
+            <div className="search-field d-none d-xl-block">
+              <form className="d-flex align-items-center h-100" action="#">
+                <div className="input-group">
+                  <div className="input-group-prepend bg-transparent">
+                    <i className="input-group-text border-0 mdi mdi-magnify"></i>
+                  </div>
+                  <input type="text" className="form-control bg-transparent border-0" placeholder="Search workouts or food..."/>
                 </div>
-                <div class="nav-language-text">
-                  <p class="mb-1 text-black">English</p>
-                </div>
-              </a>
-              <div class="dropdown-menu navbar-dropdown" aria-labelledby="languageDropdown">
-                <a class="dropdown-item" href="#">
-                  <div class="nav-language-icon mr-2">
-                    <i class="flag-icon flag-icon-ae" title="ae" id="ae"></i>
-                  </div>
-                  <div class="nav-language-text">
-                    <p class="mb-1 text-black">Arabic</p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">
-                  <div class="nav-language-icon mr-2">
-                    <i class="flag-icon flag-icon-gb" title="GB" id="gb"></i>
-                  </div>
-                  <div class="nav-language-text">
-                    <p class="mb-1 text-black">English</p>
-                  </div>
-                </a>
-              </div>
-            </li>
-            <li class="nav-item nav-profile dropdown">
-              <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                <div class="nav-profile-img">
-                  <img src="assets/images/faces/face28.png" alt="image"/>
-                </div>
-                <div class="nav-profile-text">
-                  <p class="mb-1 text-black">Henry Klein</p>
-                </div>
-              </a>
-              <div class="dropdown-menu navbar-dropdown dropdown-menu-right p-0 border-0 font-size-sm" aria-labelledby="profileDropdown" data-x-placement="bottom-end">
-                <div class="p-3 text-center bg-primary">
-                  <img class="img-avatar img-avatar48 img-avatar-thumb" src="assets/images/faces/face28.png" alt=""/>
-                </div>
-                <div class="p-2">
-                  <h5 class="dropdown-header text-uppercase pl-2 text-dark">User Options</h5>
-                  <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="#">
-                    <span>Inbox</span>
-                    <span class="p-0">
-                      <span class="badge badge-primary">3</span>
-                      <i class="mdi mdi-email-open-outline ml-1"></i>
-                    </span>
-                  </a>
-                  <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="#">
-                    <span>Profile</span>
-                    <span class="p-0">
-                      <span class="badge badge-success">1</span>
-                      <i class="mdi mdi-account-outline ml-1"></i>
-                    </span>
-                  </a>
-                  <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="javascript:void(0)">
-                    <span>Settings</span>
-                    <i class="mdi mdi-settings"></i>
-                  </a>
-                  <div role="separator" class="dropdown-divider"></div>
-                  <h5 class="dropdown-header text-uppercase  pl-2 text-dark mt-2">Actions</h5>
-                  <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="#">
-                    <span>Lock Account</span>
-                    <i class="mdi mdi-lock ml-1"></i>
-                  </a>
-                  <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="#">
-                    <span>Log Out</span>
-                    <i class="mdi mdi-logout ml-1"></i>
-                  </a>
-                </div>
-              </div>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                <i class="mdi mdi-email-outline"></i>
-                <span class="count-symbol bg-success"></span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
-                <h6 class="p-3 mb-0 bg-primary text-white py-4">Messages</h6>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <img src="assets/images/faces/face4.jpg" alt="image" class="profile-pic"/>
-                  </div>
-                  <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                    <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Mark send you a message</h6>
-                    <p class="text-gray mb-0"> 1 Minutes ago </p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <img src="assets/images/faces/face2.jpg" alt="image" class="profile-pic"/>
-                  </div>
-                  <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                    <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Cregh send you a message</h6>
-                    <p class="text-gray mb-0"> 15 Minutes ago </p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <img src="assets/images/faces/face3.jpg" alt="image" class="profile-pic"/>
-                  </div>
-                  <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                    <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Profile picture updated</h6>
-                    <p class="text-gray mb-0"> 18 Minutes ago </p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <h6 class="p-3 mb-0 text-center">4 new messages</h6>
-              </div>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
-                <i class="mdi mdi-bell-outline"></i>
-                <span class="count-symbol bg-danger"></span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-                <h6 class="p-3 mb-0 bg-primary text-white py-4">Notifications</h6>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-success">
-                      <i class="mdi mdi-calendar"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                    <h6 class="preview-subject font-weight-normal mb-1">Event today</h6>
-                    <p class="text-gray ellipsis mb-0"> Just a reminder that you have an event today </p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-warning">
-                      <i class="mdi mdi-settings"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                    <h6 class="preview-subject font-weight-normal mb-1">Settings</h6>
-                    <p class="text-gray ellipsis mb-0"> Update dashboard </p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-info">
-                      <i class="mdi mdi-link-variant"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                    <h6 class="preview-subject font-weight-normal mb-1">Launch Admin</h6>
-                    <p class="text-gray ellipsis mb-0"> New admin wow! </p>
-                  </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <h6 class="p-3 mb-0 text-center">See all notifications</h6>
-              </div>
-            </li>
-          </ul>
-          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-            <span class="mdi mdi-menu"></span>
-          </button>
-        </div>
-      </nav>
-
-      <div class="container-fluid page-body-wrapper">
+              </form>
+            </div>
+            <ul className="navbar-nav navbar-nav-right">
+              <li className="nav-item nav-profile dropdown">
+            <Link className="nav-link dropdown-toggle" id="profileDropdown" to="#" data-toggle="dropdown" aria-expanded="false">
   
-        <nav class="sidebar sidebar-offcanvas" id="sidebar">
-          <ul class="nav">
-            <li class="nav-item nav-category">Main</li>
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">
-                <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
-                <span class="menu-title">Dashboard</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                <span class="icon-bg"><i class="mdi mdi-crosshairs-gps menu-icon"></i></span>
-                <span class="menu-title">UI Elements</span>
-                <i class="menu-arrow"></i>
-              </a>
-              <div class="collapse" id="ui-basic">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="pages/icons/mdi.html">
-                <span class="icon-bg"><i class="mdi mdi-contacts menu-icon"></i></span>
-                <span class="menu-title">Icons</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="pages/forms/basic_elements.html">
-                <span class="icon-bg"><i class="mdi mdi-format-list-bulleted menu-icon"></i></span>
-                <span class="menu-title">Forms</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="pages/charts/chartjs.html">
-                <span class="icon-bg"><i class="mdi mdi-chart-bar menu-icon"></i></span>
-                <span class="menu-title">Charts</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="pages/tables/basic-table.html">
-                <span class="icon-bg"><i class="mdi mdi-table-large menu-icon"></i></span>
-                <span class="menu-title">Tables</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-                <span class="icon-bg"><i class="mdi mdi-lock menu-icon"></i></span>
-                <span class="menu-title">User Pages</span>
-                <i class="menu-arrow"></i>
-              </a>
-              <div class="collapse" id="auth">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item documentation-link">
-              <a class="nav-link" href="http://www.bootstrapdash.com/demo/connect-plus-free/jquery/documentation/documentation.html" target="_blank">
-                <span class="icon-bg">
-                  <i class="mdi mdi-file-document-box menu-icon"></i>
-                </span>
-                <span class="menu-title">Documentation</span>
-              </a>
-            </li>
-            <li class="nav-item sidebar-user-actions">
-              <div class="user-details">
-                <div class="d-flex justify-content-between align-items-center">
-                  <div>
-                    <div class="d-flex align-items-center">
-                      <div class="sidebar-profile-img">
-                        <img src="assets/images/faces/face28.png" alt="image"/>
-                      </div>
-                      <div class="sidebar-profile-text">
-                        <p class="mb-1">Henry Klein</p>
-                      </div>
-                    </div>
+</Link>
+
+                <div className="dropdown-menu navbar-dropdown dropdown-menu-right p-0 border-0 font-size-sm" aria-labelledby="profileDropdown">
+                  <div className="p-3 text-center bg-primary">
+                    <img className="img-avatar img-avatar48 img-avatar-thumb" src="assets/images/faces/face28.png" alt=""/>
                   </div>
-                  <div class="badge badge-danger">3</div>
+                  <div className="p-2">
+                    <h5 className="dropdown-header text-uppercase pl-2">User Options</h5>
+                    <Link className="dropdown-item py-1 d-flex align-items-center justify-content-between" to="/profile">
+                      <span>Profile</span>
+                      <i className="mdi mdi-account-outline ml-1"></i>
+                    </Link>
+                    <Link className="dropdown-item py-1 d-flex align-items-center justify-content-between" to="/settings">
+                      <span>Settings</span>
+                      <i className="mdi mdi-settings"></i>
+                    </Link>
+                    <div className="dropdown-divider"></div>
+                    <Link className="dropdown-item py-1 d-flex align-items-center justify-content-between" to="/logout">
+                      <span>Log Out</span>
+                      <i className="mdi mdi-logout ml-1"></i>
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            </li>
-            <li class="nav-item sidebar-user-actions">
-              <div class="sidebar-user-menu">
-                <a href="#" class="nav-link"><i class="mdi mdi-settings menu-icon"></i>
-                  <span class="menu-title">Settings</span>
-                </a>
-              </div>
-            </li>
-            <li class="nav-item sidebar-user-actions">
-              <div class="sidebar-user-menu">
-                <a href="#" class="nav-link"><i class="mdi mdi-speedometer menu-icon"></i>
-                  <span class="menu-title">Take Tour</span></a>
-              </div>
-            </li>
-            <li class="nav-item sidebar-user-actions">
-              <div class="sidebar-user-menu">
-                <a href="#" class="nav-link"><i class="mdi mdi-logout menu-icon"></i>
-                  <span class="menu-title">Log Out</span></a>
-              </div>
-            </li>
-          </ul>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/notifications">
+                  <i className="mdi mdi-bell-outline"></i>
+                  <span className="count-symbol bg-danger"></span>
+                </Link>
+              </li>
+              <li className="nav-item d-none d-lg-flex align-items-center ml-3">
+  <Link to="/login" className="btn btn-dark mr-2">Login</Link>
+  <Link to="/reg" className="btn btn-success">Register</Link>
+</li>
+            </ul>
+            <button className="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+              <span className="mdi mdi-menu"></span>
+            </button>
+          </div>
         </nav>
-       
-        <div class="main-panel">
-          <div class="content-wrapper">
-            <div class="row" id="proBanner">
-              <div class="col-12">
-                <span class="d-flex align-items-center purchase-popup">
-                  <p>Like what you see? Check out our premium version for more.</p>
-                  <a href="https://github.com/BootstrapDash/ConnectPlusAdmin-Free-Bootstrap-Admin-Template" target="_blank" class="btn ml-auto download-button">Download Free Version</a>
-                  <a href="http://www.bootstrapdash.com/demo/connect-plus/jquery/template/" target="_blank" class="btn purchase-button">Upgrade To Pro</a>
-                  <i class="mdi mdi-close" id="bannerClose"></i>
-                </span>
-              </div>
-            </div>
-            <div class="d-xl-flex justify-content-between align-items-start">
-              <h2 class="text-dark font-weight-bold mb-2"> Overview dashboard </h2>
-              <div class="d-sm-flex justify-content-xl-between align-items-center mb-2">
-                <div class="btn-group bg-white p-3" role="group" aria-label="Basic example">
-                  <button type="button" class="btn btn-link text-light py-0 border-right">7 Days</button>
-                  <button type="button" class="btn btn-link text-dark py-0 border-right">1 Month</button>
-                  <button type="button" class="btn btn-link text-light py-0">3 Month</button>
+
+        {/* Sidebar */}
+        <div className="container-fluid page-body-wrapper">
+          <nav className="sidebar sidebar-offcanvas" id="sidebar">
+            <ul className="nav">
+              <li className="nav-item nav-category">Main</li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/dashboard">
+                  <span className="icon-bg"><i className="mdi mdi-chart-areaspline menu-icon"></i></span>
+                  <span className="menu-title">Dashboard</span>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/work">
+                  <span className="icon-bg"><i className="mdi mdi-dumbbell menu-icon"></i></span>
+                  <span className="menu-title">Workouts</span>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/food">
+                  <span className="icon-bg"><i className="mdi mdi-nutrition menu-icon"></i></span>
+                  <span className="menu-title">Nutrition</span>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/pro">
+                  <span className="icon-bg"><i className="mdi mdi-chart-line menu-icon"></i></span>
+                  <span className="menu-title">Progress</span>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/goals">
+                  <span className="icon-bg"><i className="mdi mdi-flag-checkered menu-icon"></i></span>
+                  <span className="menu-title">Goals</span>
+                </Link>
+              </li>
+              
+              <li className="nav-item nav-category mt-3">Community</li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/community">
+                  <span className="icon-bg"><i className="mdi mdi-account-group menu-icon"></i></span>
+                  <span className="menu-title">Community</span>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/challenges">
+                  <span className="icon-bg"><i className="mdi mdi-trophy-award menu-icon"></i></span>
+                  <span className="menu-title">Challenges</span>
+                </Link>
+              </li>
+              
+              <li className="nav-item sidebar-user-actions mt-4">
+                <div className="sidebar-user-menu">
+                  <Link to="/settings" className="nav-link"><i className="mdi mdi-settings menu-icon"></i>
+                    <span className="menu-title">Settings</span>
+                  </Link>
                 </div>
-                <div class="dropdown ml-0 ml-md-4 mt-2 mt-lg-0">
-                  <button class="btn bg-white dropdown-toggle p-3 d-flex align-items-center" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-calendar mr-1"></i>24 Mar 2019 - 24 Mar 2019 </button>
-                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton1">
-                    <h6 class="dropdown-header">Settings</h6>
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Separated link</a>
-                  </div>
+              </li>
+              <li className="nav-item sidebar-user-actions">
+                <div className="sidebar-user-menu">
+                  <Link to="/support" className="nav-link"><i className="mdi mdi-help-circle menu-icon"></i>
+                    <span className="menu-title">Support</span>
+                  </Link>
                 </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="d-sm-flex justify-content-between align-items-center transaparent-tab-border {">
-                  <ul class="nav nav-tabs tab-transparent" role="tablist">
-                    <li class="nav-item">
-                      <a class="nav-link" id="home-tab" data-toggle="tab" href="#" role="tab" aria-selected="true">Users</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link active" id="business-tab" data-toggle="tab" href="#business-1" role="tab" aria-selected="false">Business</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" id="performance-tab" data-toggle="tab" href="#" role="tab" aria-selected="false">Performance</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" id="conversion-tab" data-toggle="tab" href="#" role="tab" aria-selected="false">Conversion</a>
-                    </li>
-                  </ul>
-                  <div class="d-md-block d-none">
-                    <a href="#" class="text-light p-1"><i class="mdi mdi-view-dashboard"></i></a>
-                    <a href="#" class="text-light p-1"><i class="mdi mdi-dots-vertical"></i></a>
-                  </div>
+              </li>
+              <li className="nav-item sidebar-user-actions">
+                <div className="sidebar-user-menu">
+                  <Link to="/logout" className="nav-link"><i className="mdi mdi-logout menu-icon"></i>
+                    <span className="menu-title">Log Out</span>
+                  </Link>
                 </div>
-                <div class="tab-content tab-transparent-content">
-                  <div class="tab-pane fade show active" id="business-1" role="tabpanel" aria-labelledby="business-tab">
-                    <div class="row">
-                      <div class="col-xl-3 col-lg-6 col-sm-6 grid-margin stretch-card">
-                        <div class="card">
-                          <div class="card-body text-center">
-                            <h5 class="mb-2 text-dark font-weight-normal">Orders</h5>
-                            <h2 class="mb-4 text-dark font-weight-bold">932.00</h2>
-                            <div class="dashboard-progress dashboard-progress-1 d-flex align-items-center justify-content-center item-parent"><i class="mdi mdi-lightbulb icon-md absolute-center text-dark"></i></div>
-                            <p class="mt-4 mb-0">Completed</p>
-                            <h3 class="mb-0 font-weight-bold mt-2 text-dark">5443</h3>
-                          </div>
-                        </div>
+              </li>
+            </ul>
+          </nav>
+          
+          {/* Main Content */}
+          <div className="main-panel">
+            <div className="content-wrapper">
+              {/* Welcome Banner */}
+              <div className="row">
+                <div className="col-12">
+                  <div className="welcome-banner p-4 bg-dark-gradient rounded">
+                    <div className="d-flex justify-content-between align-items-center">
+                      <div>
+                        <h2 className="text-dark">Welcome back, Fitness Enthusiast!</h2>
+                        <p className="text-dark">Track your fitness journey and achieve your goals</p>
                       </div>
-                      <div class="col-xl-3 col-lg-6 col-sm-6 grid-margin stretch-card">
-                        <div class="card">
-                          <div class="card-body text-center">
-                            <h5 class="mb-2 text-dark font-weight-normal">Unique Visitors</h5>
-                            <h2 class="mb-4 text-dark font-weight-bold">756,00</h2>
-                            <div class="dashboard-progress dashboard-progress-2 d-flex align-items-center justify-content-center item-parent"><i class="mdi mdi-account-circle icon-md absolute-center text-dark"></i></div>
-                            <p class="mt-4 mb-0">Increased since yesterday</p>
-                            <h3 class="mb-0 font-weight-bold mt-2 text-dark">50%</h3>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-xl-3  col-lg-6 col-sm-6 grid-margin stretch-card">
-                        <div class="card">
-                          <div class="card-body text-center">
-                            <h5 class="mb-2 text-dark font-weight-normal">Impressions</h5>
-                            <h2 class="mb-4 text-dark font-weight-bold">100,38</h2>
-                            <div class="dashboard-progress dashboard-progress-3 d-flex align-items-center justify-content-center item-parent"><i class="mdi mdi-eye icon-md absolute-center text-dark"></i></div>
-                            <p class="mt-4 mb-0">Increased since yesterday</p>
-                            <h3 class="mb-0 font-weight-bold mt-2 text-dark">35%</h3>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-xl-3 col-lg-6 col-sm-6 grid-margin stretch-card">
-                        <div class="card">
-                          <div class="card-body text-center">
-                            <h5 class="mb-2 text-dark font-weight-normal">Followers</h5>
-                            <h2 class="mb-4 text-dark font-weight-bold">4250k</h2>
-                            <div class="dashboard-progress dashboard-progress-4 d-flex align-items-center justify-content-center item-parent"><i class="mdi mdi-cube icon-md absolute-center text-dark"></i></div>
-                            <p class="mt-4 mb-0">Decreased since yesterday</p>
-                            <h3 class="mb-0 font-weight-bold mt-2 text-dark">25%</h3>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-12 grid-margin">
-                        <div class="card">
-                          <div class="card-body">
-                            <div class="row">
-                              <div class="col-sm-12">
-                                <div class="d-flex justify-content-between align-items-center mb-4">
-                                  <h4 class="card-title mb-0">Recent Activity</h4>
-                                  <div class="dropdown dropdown-arrow-none">
-                                    <button class="btn p-0 text-dark dropdown-toggle" type="button" id="dropdownMenuIconButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      <i class="mdi mdi-dots-vertical"></i>
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuIconButton1">
-                                      <h6 class="dropdown-header">Settings</h6>
-                                      <a class="dropdown-item" href="#">Action</a>
-                                      <a class="dropdown-item" href="#">Another action</a>
-                                      <a class="dropdown-item" href="#">Something else here</a>
-                                      <div class="dropdown-divider"></div>
-                                      <a class="dropdown-item" href="#">Separated link</a>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-lg-3 col-sm-4 grid-margin  grid-margin-lg-0">
-                                <div class="wrapper pb-5 border-bottom">
-                                  <div class="text-wrapper d-flex align-items-center justify-content-between mb-2">
-                                    <p class="mb-0 text-dark">Total Profit</p>
-                                    <span class="text-success"><i class="mdi mdi-arrow-up"></i>2.95%</span>
-                                  </div>
-                                  <h3 class="mb-0 text-dark font-weight-bold">$ 92556</h3>
-                                  <canvas id="total-profit"></canvas>
-                                </div>
-                                <div class="wrapper pt-5">
-                                  <div class="text-wrapper d-flex align-items-center justify-content-between mb-2">
-                                    <p class="mb-0 text-dark">Expenses</p>
-                                    <span class="text-success"><i class="mdi mdi-arrow-up"></i>52.95%</span>
-                                  </div>
-                                  <h3 class="mb-4 text-dark font-weight-bold">$ 59565</h3>
-                                  <canvas id="total-expences"></canvas>
-                                </div>
-                              </div>
-                              <div class="col-lg-9 col-sm-8 grid-margin  grid-margin-lg-0">
-                                <div class="pl-0 pl-lg-4 ">
-                                  <div class="d-xl-flex justify-content-between align-items-center mb-2">
-                                    <div class="d-lg-flex align-items-center mb-lg-2 mb-xl-0">
-                                      <h3 class="text-dark font-weight-bold mr-2 mb-0">Devices sales</h3>
-                                      <h5 class="mb-0">( growth 62% )</h5>
-                                    </div>
-                                    <div class="d-lg-flex">
-                                      <p class="mr-2 mb-0">Timezone:</p>
-                                      <p class="text-dark font-weight-bold mb-0">GMT-0400 Eastern Delight Time</p>
-                                    </div>
-                                  </div>
-                                  <div class="graph-custom-legend clearfix" id="device-sales-legend"></div>
-                                  <canvas id="device-sales"></canvas>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm-4 grid-margin stretch-card">
-                        <div class="card card-danger-gradient">
-                          <div class="card-body mb-4">
-                            <h4 class="card-title text-white">Account Retention</h4>
-                            <canvas id="account-retension"></canvas>
-                          </div>
-                          <div class="card-body bg-white pt-4">
-                            <div class="row pt-4">
-                              <div class="col-sm-6">
-                                <div class="text-center border-right border-md-0">
-                                  <h4>Conversion</h4>
-                                  <h1 class="text-dark font-weight-bold mb-md-3">$306</h1>
-                                </div>
-                              </div>
-                              <div class="col-sm-6">
-                                <div class="text-center">
-                                  <h4>Cancellation</h4>
-                                  <h1 class="text-dark font-weight-bold">$1,520</h1>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm-8  grid-margin stretch-card">
-                        <div class="card">
-                          <div class="card-body">
-                            <div class="d-xl-flex justify-content-between mb-2">
-                              <h4 class="card-title">Page views analytics</h4>
-                              <div class="graph-custom-legend primary-dot" id="pageViewAnalyticLengend"></div>
-                            </div>
-                            <canvas id="page-view-analytic"></canvas>
-                          </div>
-                        </div>
+                      <div>
+                        <Link to="/work" className="btn btn-warning mr-2">
+                          <i className="mdi mdi-plus"></i> Add Workout
+                        </Link>
+                        <Link to="/food" className="btn btn-warning">
+                          <i className="mdi mdi-food"></i> Log Meal
+                        </Link>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+              
+              {/* Stats Overview */}
+              <div className="row mt-4">
+                <div className="col-xl-3 col-lg-6 col-sm-6 grid-margin stretch-card">
+                  <div className="card bg-dark">
+                    <div className="card-body text-center">
+                      <h5 className="mb-2 text-light font-weight-normal">Today's Calories</h5>
+                      <h2 className="mb-4 text-white font-weight-bold">1,850</h2>
+                      <div className="dashboard-progress dashboard-progress-1 d-flex align-items-center justify-content-center item-parent">
+                        <i className="mdi mdi-fire icon-md absolute-center text-primary"></i>
+                      </div>
+                      <p className="mt-4 mb-0 text-muted">Remaining</p>
+                      <h3 className="mb-0 font-weight-bold mt-2 text-white">450</h3>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-xl-3 col-lg-6 col-sm-6 grid-margin stretch-card">
+                  <div className="card bg-dark">
+                    <div className="card-body text-center">
+                      <h5 className="mb-2 text-light font-weight-normal">Workouts This Week</h5>
+                      <h2 className="mb-4 text-white font-weight-bold">4</h2>
+                      <div className="dashboard-progress dashboard-progress-2 d-flex align-items-center justify-content-center item-parent">
+                        <i className="mdi mdi-dumbbell icon-md absolute-center text-success"></i>
+                      </div>
+                      <p className="mt-4 mb-0 text-muted">Last workout</p>
+                      <h3 className="mb-0 font-weight-bold mt-2 text-white">2 days ago</h3>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-xl-3 col-lg-6 col-sm-6 grid-margin stretch-card">
+                  <div className="card bg-dark">
+                    <div className="card-body text-center">
+                      <h5 className="mb-2 text-light font-weight-normal">Current Weight</h5>
+                      <h2 className="mb-4 text-white font-weight-bold">78.5 kg</h2>
+                      <div className="dashboard-progress dashboard-progress-3 d-flex align-items-center justify-content-center item-parent">
+                        <i className="mdi mdi-scale-bathroom icon-md absolute-center text-info"></i>
+                      </div>
+                      <p className="mt-4 mb-0 text-muted">Change this month</p>
+                      <h3 className="mb-0 font-weight-bold mt-2 text-white">-1.2 kg</h3>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-xl-3 col-lg-6 col-sm-6 grid-margin stretch-card">
+                  <div className="card bg-dark">
+                    <div className="card-body text-center">
+                      <h5 className="mb-2 text-light font-weight-normal">Water Intake</h5>
+                      <h2 className="mb-4 text-white font-weight-bold">2.1 L</h2>
+                      <div className="dashboard-progress dashboard-progress-4 d-flex align-items-center justify-content-center item-parent">
+                        <i className="mdi mdi-cup-water icon-md absolute-center text-warning"></i>
+                      </div>
+                      <p className="mt-4 mb-0 text-muted">Daily goal</p>
+                      <h3 className="mb-0 font-weight-bold mt-2 text-white">2.5 L</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Recent Activity */}
+              <div className="row">
+                <div className="col-12 grid-margin">
+                  <div className="card bg-dark">
+                    <div className="card-body">
+                      <div className="d-flex justify-content-between align-items-center mb-4">
+                        <h4 className="card-title text-white">Recent Activity</h4>
+                        <Link to="/activity" className="btn btn-sm btn-outline-light">View All</Link>
+                      </div>
+                      <div className="table-responsive">
+                        <table className="table table-dark">
+                          <thead>
+                            <tr>
+                              <th>Date</th>
+                              <th>Activity</th>
+                              <th>Type</th>
+                              <th>Details</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>Today, 08:30 AM</td>
+                              <td>Morning Run</td>
+                              <td><span className="badge badge-primary">Cardio</span></td>
+                              <td>5.2 km in 28:15</td>
+                            </tr>
+                            <tr>
+                              <td>Yesterday, 07:15 PM</td>
+                              <td>Chest & Triceps</td>
+                              <td><span className="badge badge-success">Strength</span></td>
+                              <td>12 exercises, 45 min</td>
+                            </tr>
+                            <tr>
+                              <td>Yesterday, 12:30 PM</td>
+                              <td>Lunch</td>
+                              <td><span className="badge badge-info">Nutrition</span></td>
+                              <td>Grilled chicken, rice, veggies - 650 kcal</td>
+                            </tr>
+                            <tr>
+                              <td>2 days ago, 06:45 AM</td>
+                              <td>Yoga Session</td>
+                              <td><span className="badge badge-warning">Flexibility</span></td>
+                              <td>30 min morning flow</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Workout and Nutrition Progress */}
+              <div className="row">
+                <div className="col-md-6 grid-margin stretch-card">
+                  <div className="card bg-dark">
+                    <div className="card-body">
+                      <div className="d-flex justify-content-between align-items-center mb-3">
+                        <h4 className="card-title text-white">Weekly Workouts</h4>
+                        <div className="dropdown">
+                          <button className="btn btn-sm btn-outline-light dropdown-toggle" type="button" id="workoutDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            This Week
+                          </button>
+                          <div className="dropdown-menu" aria-labelledby="workoutDropdown">
+                            <Link className="dropdown-item" to="#">This Week</Link>
+                            <Link className="dropdown-item" to="#">Last Week</Link>
+                            <Link className="dropdown-item" to="#">This Month</Link>
+                          </div>
+                        </div>
+                      </div>
+                      <canvas id="workout-chart" height="200"></canvas>
+                      <div className="mt-4">
+                        <div className="d-flex justify-content-between align-items-center mb-2">
+                          <div className="text-muted">Workout Completion</div>
+                          <div className="text-success">80%</div>
+                        </div>
+                        <div className="progress progress-md">
+                          <div className="progress-bar bg-success" role="progressbar" style={{width: '80%'}} aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-md-6 grid-margin stretch-card">
+                  <div className="card bg-dark">
+                    <div className="card-body">
+                      <div className="d-flex justify-content-between align-items-center mb-3">
+                        <h4 className="card-title text-white">Nutrition Breakdown</h4>
+                        <div className="dropdown">
+                          <button className="btn btn-sm btn-outline-light dropdown-toggle" type="button" id="nutritionDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Today
+                          </button>
+                          <div className="dropdown-menu" aria-labelledby="nutritionDropdown">
+                            <Link className="dropdown-item" to="#">Today</Link>
+                            <Link className="dropdown-item" to="#">Yesterday</Link>
+                            <Link className="dropdown-item" to="#">This Week</Link>
+                          </div>
+                        </div>
+                      </div>
+                      <canvas id="nutrition-chart" height="200"></canvas>
+                      <div className="mt-4">
+                        <div className="row text-center">
+                          <div className="col-4 border-right">
+                            <h4 className="text-white font-weight-bold">1,850</h4>
+                            <small className="text-muted">Calories</small>
+                          </div>
+                          <div className="col-4 border-right">
+                            <h4 className="text-white font-weight-bold">145g</h4>
+                            <small className="text-muted">Protein</small>
+                          </div>
+                          <div className="col-4">
+                            <h4 className="text-white font-weight-bold">210g</h4>
+                            <small className="text-muted">Carbs</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Quick Actions */}
+              <div className="row">
+                <div className="col-12">
+                  <div className="card bg-dark">
+                    <div className="card-body">
+                      <h4 className="card-title text-white mb-4">Quick Actions</h4>
+                      <div className="row">
+                        <div className="col-md-3 col-6 mb-4">
+                          <Link to="/work" className="btn btn-block btn-outline-primary py-3">
+                            <i className="mdi mdi-dumbbell icon-lg"></i>
+                            <span className="d-block mt-2">Add Workout</span>
+                          </Link>
+                        </div>
+                        <div className="col-md-3 col-6 mb-4">
+                          <Link to="/food" className="btn btn-block btn-outline-success py-3">
+                            <i className="mdi mdi-food icon-lg"></i>
+                            <span className="d-block mt-2">Log Meal</span>
+                          </Link>
+                        </div>
+                        <div className="col-md-3 col-6 mb-4">
+                          <Link to="/measurements" className="btn btn-block btn-outline-info py-3">
+                            <i className="mdi mdi-ruler icon-lg"></i>
+                            <span className="d-block mt-2">Add Measurements</span>
+                          </Link>
+                        </div>
+                        <div className="col-md-3 col-6 mb-4">
+                          <Link to="/goals" className="btn btn-block btn-outline-warning py-3">
+                            <i className="mdi mdi-flag-checkered icon-lg"></i>
+                            <span className="d-block mt-2">Set Goal</span>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+            
+            {/* Footer */}
+      <footer className="footer bg-dark py-3">
+  <div className="container">
+    <div className="d-sm-flex justify-content-center justify-content-sm-between">
+      <span className="text-light d-block text-center text-sm-left d-sm-inline-block">
+        © FitTrackPro 2025
+      </span>
+      <span className="float-none float-sm-right d-block mt-2 mt-sm-0 text-center">
+        <Link to="/terms" className="text-light mx-2">Terms</Link>
+        <Link to="/privacy" className="text-light mx-2">Privacy</Link>
+        <Link to="/contact" className="text-light mx-2">Contact</Link>
+      </span>
+    </div>
+  </div>
+</footer>
+
           </div>
-       
-          <footer class="footer">
-            <div class="footer-inner-wraper">
-              <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
-                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap dashboard templates</a> from Bootstrapdash.com</span>
-              </div>
-            </div>
-          </footer>
-       
         </div>
-  
       </div>
-   
     </div>
-    </div>
-  )
+  );
 }

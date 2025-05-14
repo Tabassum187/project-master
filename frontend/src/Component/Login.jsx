@@ -3,61 +3,58 @@ import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from 'react-router-dom';
+import styles from '../style/Login.module.css'; // ✅ Using CSS Module
 
 export default function Login() {
   const [email, setEmail] = useState(""); 
   const [pswd, setPswd] = useState("");
-  const navigate = useNavigate(); // 👈 for navigation
+  const navigate = useNavigate();
 
   async function login_func() {
     try {
-      const response = await axios.post("http://localhost:3001/gym/log", {
+      let response = await axios.post("http://localhost:3001/gym/log", {
         email: email,
         password: pswd
       });
 
-      const data = response.data;
+      let data = response.data;
       localStorage.setItem("user_informartion", JSON.stringify(data.user));
       toast.success(data.msg);
       setEmail("");
       setPswd("");
 
-      // ✅ Redirect to dashboard
       navigate('/dashboard');
-
     } catch (error) {
       toast.error("Login failed. Please check your credentials.");
     }
   }
 
   return (
-    <div>
+    <div className={styles.loginContainer}>
       <ToastContainer />
-      <h1>LOGIN</h1>
+      <div className={styles.loginBox}>
+        <h2 className={styles.heading}>Welcome Back 🏋️‍♂️</h2>
 
-      <label htmlFor="email">Email Address</label>
-      <input 
-        type="email" 
-        id="email" 
-        name="email" 
-        required 
-        className='form-control my-2' 
-        value={email}
-        onChange={(e) => setEmail(e.target.value)} 
-      />
+        <label htmlFor="email" className={styles.label}>Email Address</label>
+        <input 
+          type="email" 
+          id="email" 
+          className={styles.input}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)} 
+        />
 
-      <label htmlFor="password">Password</label>
-      <input 
-        type="password" 
-        id="password" 
-        name="password" 
-        required 
-        className='form-control my-2' 
-        value={pswd}
-        onChange={(e) => setPswd(e.target.value)} 
-      />
+        <label htmlFor="password" className={styles.label}>Password</label>
+        <input 
+          type="password" 
+          id="password" 
+          className={styles.input}
+          value={pswd}
+          onChange={(e) => setPswd(e.target.value)} 
+        />
 
-      <button className='btn btn-primary' onClick={login_func}>Login</button>
+        <button className={styles.loginButton} onClick={login_func}>Login</button>
+      </div>
     </div>
   );
 }

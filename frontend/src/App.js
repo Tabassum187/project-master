@@ -6,7 +6,7 @@ import "bootstrap/dist/js/bootstrap.bundle.js";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 import Main from './Component/Main';
-import Rigester from './Component/Rigester';
+import Rigester from './Component/Register';
 import ShowUser from './Component/ShowUser';
 import Login from './Component/Login';
 import ProgressForm from './Component/ProgressForm';
